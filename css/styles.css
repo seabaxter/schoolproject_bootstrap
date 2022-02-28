@@ -1,0 +1,96 @@
+body {
+  padding-top: 5rem;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.nav_cart {
+  font-size: 1.5rem;
+  margin-left: 100%;
+  margin-right: auto;
+}
+
+.navbar-custom {
+  background-color: black;
+}
+
+nav .navbar-nav li a {
+  color:white;
+}
+nav .navbar-nav li a:hover {
+  color:grey;
+}
+nav .navbar-nav a:active {
+  color:orange;
+}
+
+.navbar-toggler-icon {
+  background-color:orange;
+}
+
+
+
+div h8 {
+  font-size: 25px;
+  color: white;
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+img {
+  width: 50px;
+}
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color:black;
+  text-align: center;
+}
+.modal-content .modal-body .mainPic {
+  height: 300px;
+  width: 300px;
+}
+.fancybox img {
+  width: 75px;
+  height: 75px;
+}
+
+.carousel img {
+  height: 500px;
+}
+.carousel-inner {
+  height: 400px;
+}
+
+.card {
+  display: inline-flex;
+}
+
+/*-------  CONACT PAGE CSS---------  */
+#contactPage #emailError, #contactPage #subjectError, #contactPage #messageError {
+  display: none;
+}
+
+#contactPage #submit {
+  display: block;
+}
+
+#contactPage .spanError {
+  font-weight: 800;
+  color: orange;
+  display: inline-block !important;
+}
+
+#contactPage #form {
+  margin-top: 100px;
+}
+
+#contactPage div .responsive {
+  width: 100%;
+  height: auto;
+}

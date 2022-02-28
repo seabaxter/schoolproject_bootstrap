@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>ProClashGamers Merch</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="./css/styles.css" rel="stylesheet">
+    
+    <script>
+
+      // DIFFERENT PAGES OUT OF DIVs
+      function myFunction() {
+        var home = document.getElementById("homePage");
+        var about = document.getElementById("aboutPage");
+        var contact = document.getElementById("contactPage");
+
+        if (home.style.display === "none") {
+          home.style.display = "block";
+          contact.style.display = "none";
+          about.style.display = "none"; 
+        } else {
+          home.style.display = "block";
+        }
+      }
+
+      function myFunction1() {
+        var home = document.getElementById("homePage");
+        var about = document.getElementById("aboutPage");
+        var contact = document.getElementById("contactPage");
+
+        if (about.style.display === "none") {
+          about.style.display = "block";
+          contact.style.display = "none";
+          home.style.display = "none";
+        } else {
+          about.style.display = "block";
+        }
+      }
+
+      function myFunction2() {
+        var home = document.getElementById("homePage");
+        var about = document.getElementById("aboutPage");
+        var contact = document.getElementById("contactPage");
+
+        if (contact.style.display === "none") {
+          contact.style.display = "block";
+          home.style.display = "none";
+          about.style.display = "none";
+        } else {
+          contact.style.display = "block";
+        }
+      }
+
+    /*    CONTACT PAGE !!!!    */
+    function getFormData( ) {
+        var email = $("#email").val();
+        var subject = $("#subject").val();
+        var message = $("#message").val();
+
+        var errors = 0;
+
+        if ( email == "") {
+            errors = 1;
+            $("#emailError").addClass('spanError');
+        } else {
+            $("#emailError").removeClass('spanError');
+        }
+        if (subject == "") {
+            errors = 2;
+            $("#subjectError").addClass('spanError');
+        } else {
+            $("#subjectError").removeClass('spanError');
+        }
+        if (message == "") {
+            errors = 3;
+            $("#messageError").addClass('spanError');
+        } else {
+            $("#messageError").removeClass('spanError');
+        }
+
+        if (errors == 0) {
+            //send data to server
+            alert("data will be sent to the server");
+            var dataForServer = '&email=' + email + '&subject=' + subject + '&message=' + message;
+
+            $.ajax({
+                type: 'POST', 
+                url: '/html/STARTPACK/send.php',
+                data: dataForServer, 
+                success: function(msg) {
+                    if ( msg != '' ) alert(msg);
+                }
+            }); } else {
+            alert('Error code: '+ errors);
+        } 
+    }
+    //EMAIL VALIDATION FOR CONTACTING
+    function validateEmail(email) {
+        var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if(email.value.match(mailformat)) {
+            Document.form1.email.focus();
+            return true;
+        } else {
+            alert("You have entered an invalid email address!");
+            Document.form1.email.focus();
+            return false;
+            }
+        }
+
+    </script>
+  </head>
+
+  <body>
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-expand-md navbar-custom fixed-top">
+      <a class="navbar-brand" href="#"><img src="images/logo.png" onclick="myFunction()"></a>
+      <div>
+        <h8 onclick="myFunction()">ProClashGamers Merch</h8>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="myFunction()">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="myFunction1()">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="myFunction2()">Contact</a>
+          </li>
+          <ul class="nav navbar-nav navbar-right"></ul>
+          <div>
+            <a href="#"><i class="bx bx-cart nav_cart" style="color:orange;"></i></a>
+          </div>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <!--     HOME PAGE      -->
+      <div class="homePage" id="homePage">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="images/breezy.png" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="images/hat.png" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="images/drifit.png" alt="Third slide">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card" style="width: 15rem; margin-left: 25px;">
+              <img src="images/breezy.png" class="card-img-top" alt="..." > <!-- BREEZY -->
+              <div class="card-body">
+                <h5 class="card-title">PcG Logo Breezy</h5>
+                <p class="card-text">ProClashGamers Breezy</p>
+                <p><strong>$45.00</strong></p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalBreezy">View</a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 15rem; margin-left: 25px;">
+              <img src="images/hoodie.png" class="card-img-top" alt="..."> <!-- HOODIE -->
+              <div class="card-body">
+                <h5 class="card-title">PcG Logo Hoodie</h5>
+                <p class="card-text">ProClashGamers Hoodie</p>
+                <p><strong>$35.00</strong></p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalHoodie">view</a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 15rem; margin-left: 25px;">
+              <img src="images/flipflop.png" class="card-img-top" alt="..."> <!-- FLIPFLOP -->
+              <div class="card-body">
+                <h5 class="card-title">PcG Logo Flipflops</h5>
+                <p class="card-text">ProClashGamers Flipflops</p>
+                <p><strong>$25.00</strong></p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalFlipflops">view</a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 15rem; margin-left: 25px;">
+              <img src="images/drifit.png" class="card-img-top" alt="..."> <!-- DRIFIT -->
+              <div class="card-body">
+                <h5 class="card-title">PcG Logo Drifit Shirt</h5>
+                <p class="card-text">ProClashGamers Drifit</p>
+                <p><strong>$45.00</strong></p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalDrifit">view</a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 15rem; margin-left: 25px;">
+              <img src="images/hat.png" class="card-img-top" alt="..."> <!-- HAT -->
+              <div class="card-body">
+                <h5 class="card-title">PcG Logo Hat</h5>
+                <p class="card-text">ProClashGamers Hat</p>
+                <p><strong>$25.00</strong></p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalHat">view</a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 15rem; margin-left: 25px;">
+              <img src="images/socks.png" class="card-img-top" alt="..."> <!-- SOCKS -->
+              <div class="card-body">
+                <h5 class="card-title">PcG Logo Socks</h5>
+                <p class="card-text">ProClashGamers Socks</p>
+                <p><strong>$25.00</strong></p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalSocks">view</a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 15rem; margin-left: 25px;">
+              <img src="images/casual.png" class="card-img-top" alt="..."> <!-- CASUAL -->
+              <div class="card-body">
+                <h5 class="card-title">PcG Logo Casual Sweater</h5>
+                <p class="card-text">ProClashGamers Casual Sweater</p>
+                <p><strong>$41.00</strong></p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalCasual">view</a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 15rem; margin-left: 25px;">
+              <img src="images/tanktop.png" class="card-img-top" alt="..."> <!-- TANKTOP -->
+              <div class="card-body">
+                <h5 class="card-title">PcG Logo Mens Tank Top</h5>
+                <p class="card-text">ProClashGamers Mens Tank Top</p>
+                <p><strong>$25.00</strong></p>
+                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalTanktop">view</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div id="footer" class="footer" style="position: relative; background-color: black;">
+          <p style="color: white;">Contact: baxter in the <a style="text-decoration: none; color:orange;" href="https://disboard.org/server/146034525741383680">PcG Discord</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.facebook.com/SinDragon12508"><i class="bx bxl-facebook-square" style="color:orange;"></i></a>
+            <a href="https://www.youtube.com/channel/UCE-7shuXZQZSfFzckwDbDuA"><i class="bx bxl-youtube" style="color:orange;"></i></a>
+            <a href="https://www.twitch.tv/proclashgamers"><i class="bx bxl-twitch" style="color:orange;"></i></a>
+            <a href="https://twitter.com/ProClashGamers"><i class="bx bxl-twitter" style="color:orange;"></i></a>
+          </p>
+          
+        </div>
+      </div>
+
+      <!--     ABOUT PAGE      -->
+      <div class="aboutPage" id="aboutPage" style="display: none; ">
+        <h7 class="aboutTitle" style="font-size:35px; font-weight: 700;"><strong>About ProClashGamers</strong></h7>
+        <div class="about">
+          <h6 class="aboutTitle" style="margin-top: 10px; font-size:18px; font-weight: 700;">Meet Jeremy "<strong>Sin</strong>" Ramos</h6>
+          <img src="images/sin.jpg" style="width:200px; height:240px; float: left;" alt="Responsive image"/>
+          <p style="font-size:15; font-weight: 600;">&nbsp;&nbsp;Jeremy Ramos aka "SinDragon" aka "Sin" started PcG back in 1996 with a group of friends.</br>
+            Jeremy and his wife Jade have been in the gaming scene since a very young age; playing at arcades, internet cafes, 
+             lan tornaments, etc. Counter-Strike was the very first game for Pro Clash Gamers.</br></br>
+             &nbsp;&nbsp;"How does anybody find friends? In the traditional community, we search through our pool of neighbors and professional colleagues, 
+             of acquaintances and acquaintances of acquaintances, in order to find people who share our values and interests. We exchange information 
+             about one another, disclose and discuss our mutual interests, and sometimes we become friends. In a virtual community we can go directly to the
+              place where are favorite subjects are being discussed, then get acquainted with people who share our passions or who use words in a way we find 
+              attractive. Your chances of making friends are magnified by orders of magnitude over the old methods of finding a peer group." Come join us at PcG 
+              and become family we are a online community that's been around for the past 20 years with over 800 members if you enjoy any of the games tag in this 
+              discription please join us.</br></br>
+             Pro Clash Gamers are involved in many different gaming communities consisiting of:</br>
+             CS:GO, Valorant, Call of Duty: ModernWarfare, Call of Duty: Black Ops, Rust, and MANY MORE !!</br></br> </p>
+          <h9 style="font-size:22px;"><strong>Pro Clash Gamers Background</strong></h9>
+          <p class="aboutPara" style="font-size:15; font-weight: 600; "><strong>Pro</strong> - Means a professional, especially in sports.... 
+            </br> <strong>Clash</strong> - Means a violent confrontation....  
+            </br> <strong>Gamers</strong> - Means a person who plays video games or participates in role-playing games.....</br>
+            </br>★ PcG is a group of online friends that have fun on our time off, we can take our gaming skill from 0 to 100 real quick.</br>
+            &nbsp;&nbsp;&nbsp;• PcG was talked about in 1996 group of friends talked about making a team.</br>
+            &nbsp;&nbsp;&nbsp;• PcG I founded in 1997 with the original name of Cl'ash</br>
+            &nbsp;&nbsp;&nbsp;• PcG was established in Pro Leagues in 2010 wit the original name Pro Clash Gaming</br>
+            &nbsp;&nbsp;&nbsp;• Now rebooted permanently August 1, 2017 with the new name Pro Clash Gamers aka PcG</br>
+            </br>
+            ★ Pro League Experience ★ </br>
+            &nbsp;&nbsp;&nbsp;• CS1.6 Pro Experience - Cal aka Cyber Athletic League</br>
+            &nbsp;&nbsp;&nbsp;• CS1.6 Pro Experience - Eco League</br>
+            &nbsp;&nbsp;&nbsp;• CS1.6 Pro Experience - Cevo league</br>
+            &nbsp;&nbsp;&nbsp;• CS1.6 Pro Experience - ESEA</br>
+            &nbsp;&nbsp;&nbsp;• CS:GO Open Experience - ESEA </br>
+            &nbsp;&nbsp;&nbsp;• CS:GO Open Experience - Faceit</br>
+          </p>
+
+            <a href="https://steamcommunity.com/groups/proclashgamers" style="text-decoration: none; color:orange; font-weight: 800; font-size: 19px; background-color: black;">ProClashGamers on Steam</a></br>
+            <a href="https://disboard.org/server/146034525741383680" style="text-decoration: none; color:orange; font-weight: 800; font-size: 19px; background-color: black;">ProClashGamers on Discord</a>
+        </div></br></br>
+        <!-- FOOTER -->
+        <div id="footer" class="footer" style="position: relative; background-color: black;">
+          <p style="color: white;">Contact: baxter in the <a style="text-decoration: none; color:orange;" href="https://disboard.org/server/146034525741383680">PcG Discord</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.facebook.com/SinDragon12508"><i class="bx bxl-facebook-square" style="color:orange;"></i></a>
+            <a href="https://www.youtube.com/channel/UCE-7shuXZQZSfFzckwDbDuA"><i class="bx bxl-youtube" style="color:orange;"></i></a>
+            <a href="https://www.twitch.tv/proclashgamers"><i class="bx bxl-twitch" style="color:orange;"></i></a>
+            <a href="https://twitter.com/ProClashGamers"><i class="bx bxl-twitter" style="color:orange;"></i></a>
+          </p>
+        </div>
+      </div>
+
+      <!--     CONTACT PAGE        -->
+      <div class="contactPage" id="contactPage" style="display: none;">
+        <div>
+          <h7 style="font-size: 35px; font-weight: 700;">Contact Us</h7>
+        </div>
+        <h9 style="font-size: 20px; font-weight: 500;">Send Us an Email!</h9>
+
+        <form id="form" name="form" method="post" action="javascript:getFormData();" style="margin-top: 40px;" >
+          <!-- EMAIL-->
+          <label for="email">E-mail:</label>
+          <input type="email" name="email" id="email" value="" style="margin-left: 18px;" />
+          <span id="emailError">*required</span>
+          </br>
+
+          <!-- SUBJECT -->
+          <label for="subject">Subject:</label>
+          <input type="text" name="subject" id="subject" value="" style="margin-left: 11px;"/>
+          <span id="subjectError">*required</span>
+          </br>
+
+          <!-- MESSAGE -->
+          <label for="message">Message:</label>
+          <textarea name="message" id="message" rows="5" cols="45">Write Your Message Here.</textarea>
+          <span id="messageError">*required</span>
+          </br> 
+
+          <!-- SUBMIT -->
+          <input style="margin-bottom: 50px;" type="submit" class="btn-warning" name="submit" id="submit" value="Submit" onClick="validateEmail(Document.email)"  />
+          
+          <!-- DISCORD CHANNEL EMBEDED -->
+          <iframe src="https://discord.com/widget?id=146034525741383680&theme=dark" width="1100" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+          <!-- FOOTER -->
+          <div id="footer" class="footer" style="position: inherit; background-color: black; margin-top: 20px;">
+            <p style="color: white;">Contact: baxter in the <a style="text-decoration: none; color:orange;" href="https://disboard.org/server/146034525741383680">PcG Discord</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.facebook.com/SinDragon12508"><i class="bx bxl-facebook-square" style="color:orange;"></i></a>
+              <a href="https://www.youtube.com/channel/UCE-7shuXZQZSfFzckwDbDuA"><i class="bx bxl-youtube" style="color:orange;"></i></a>
+              <a href="https://www.twitch.tv/proclashgamers"><i class="bx bxl-twitch" style="color:orange;"></i></a>
+              <a href="https://twitter.com/ProClashGamers"><i class="bx bxl-twitter" style="color:orange;"></i></a>
+            </p>
+          </div>
+        </form>
+      </div>
+      
+
+    </main><!-- /.container --> <!--        THIS IS WHERE THE MODALS START!!!              -->
+
+      <!-- Start bootstrap modal -->
+      <div class="modal fade" id="modalBreezy">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-title"> <!-- HEADER-->
+              <p class="display-4" style="font-size: 10px;"><strong>PcG Logo Breezy</strong></p>
+              <button type='button' class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body"><!-- BODY / BREEZY -->
+              <div class="wrapper">
+                <a data-fancybox="gallery" href="images/breezy.png"><img src="images/small-breezy.png" style="height: 365px; width: 375px; margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/breezy.png"><img src="images/small-breezy.png" style="margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/breezy.png"><img src="images/small-breezy.png" ></a>
+                <a data-fancybox="gallery" href="images/breezy.png"><img src="images/small-breezy.png" ></a>
+              </div>
+              <p class="itemTitle" style="font-size:20px; font-weight: 700;">ProClashGamers Logo Breezy <a href="#" style="text-decoration: none; font-size: 12px; color:orange; font-weight: 500;"><i class="bx bx-cart nav_cart" style="color:orange; margin-left:50px;"></i>Shopping Cart</a></p>
+              <p><strong>$45.00</strong></p>
+              <p class="itemDesc" style="font-size:15px;">
+                Protect yourself from the elements with this Champion packable jacket. This wind and rain resistant polyester 
+                jacket with a detailed embroidery design has a practical hood, front kangaroo pocket, and zipped pouch pocket which you can pull out and use to scrunch the jacket into for convenient storage.</br>
+                • 100% polyester micro poplin</br>
+                • Wind and rain resistant</br>
+                • Half zip pullover with a hood</br>
+                • Front kangaroo pocket</br>
+                • Hidden zipped pouch pocket</br>
+                • Packable in the zipped pouch pocket</br>
+                • Adjustable bungee draw cord at hood and bottom hem</br>
+                • Elastic cuffs</br>
+                • Embroidered “C” logo on the left sleeve</br>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button class="add-button btn-danger" type="submit">Add to Cart!</button>
+              <button type='button' class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalHoodie" >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-title"> <!-- HEADER-->
+              <p class="display-4" style="font-size: 10px;"><strong>PcG Logo Hoodie</strong></p>
+              <button type='button' class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body"><!-- BODY / HOODIE -->
+              <div class="wrapper">
+                <a data-fancybox="gallery" href="images/hoodie.png"><img src="images/small-hoodie.png" style="height: 365px; width: 375px; margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/hoodie.png"><img src="images/small-hoodie.png" style="margin-left: 80px;"></a>
+                <a data-fancybox="gallery" href="images/hoodie.png"><img src="images/small-hoodie.png" ></a>
+                <a data-fancybox="gallery" href="images/hoodie.png"><img src="images/small-hoodie.png" ></a>
+              </div>
+              <p class="itemTitle" style="font-size:20px; font-weight: 700;">ProClashGamers Logo Hoodie <a href="#" style="text-decoration: none; font-size: 12px; color:orange; font-weight: 500;"><i class="bx bx-cart nav_cart" style="color:orange; margin-left:50px;"></i>Shopping Cart</a></p>
+              <p><strong>$35.00</strong></p>
+              <p class="itemDesc" style="font-size:15px;">
+                This American Apparel hoodie is made out of California fleece which is soft to the touch, and you'll 
+                feel like you're wearing a soft, fluffy cloud. It's pre-washed to minimize shrinkage, and breathable yet extra thick for warmth.</br>
+                • 100% California fleece cotton</br>
+                • Fabric weight: 7.2 oz/yd² (244.1 g/m²)</br>
+                • Matching polyester drawcord</br>
+                • Raglan sleeves</br>
+                • Front pouch pocket</br>
+                • Blank product sourced from El Salvador</br></p>
+            </div>
+            <div class="modal-footer">
+              <button class="add-button btn-danger" type="submit">Add to Cart!</button>
+              <button type='button' class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+      <div class="modal fade" id="modalFlipflops">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-title"> <!-- HEADER-->
+              <p class="display-4" style="font-size: 10px;"><strong>PcG Logo Flipflops</strong></p>
+              <button type='button' class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body"><!-- BODY / FLIPFLOP -->
+              <div class="wrapper">
+                <a data-fancybox="gallery" href="images/flipflop.png"><img src="images/small-flipflop.png" style="height: 365px; width: 375px; margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/flipflop.png"><img src="images/small-flipflop.png" style="margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/flipflop.png"><img src="images/small-flipflop.png" ></a>
+                <a data-fancybox="gallery" href="images/flipflop.png"><img src="images/small-flipflop.png" ></a>
+              </div>
+              <p class="itemTitle" style="font-size:20px; font-weight: 700;">ProClashGamers Logo Flipflops <a href="#" style="text-decoration: none; font-size: 12px; color:orange; font-weight: 500;"><i class="bx bx-cart nav_cart" style="color:orange; margin-left:50px;"></i>Shopping Cart</a></p>
+              <p><strong>$25.00</strong></p>
+              <p class="itemDesc" style="font-size:15px;">
+              Prepare for an adventurous and carefree summer with a pair of colorful slippers that are created just for you! The rubber sole 
+              is lined with a soft fabric to make sure you feel comfortable wherever your day takes you.</br>
+              • Rubber sole</br>
+              • Customizable 100% polyester fabric lining</br>
+              • Black Y-shaped rubber straps</br>
+              • Toe post style</br></p>
+            </div>
+            <div class="modal-footer">
+              <button class="add-button btn-danger" type="submit">Add to Cart!</button>
+              <button type='button' class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="modal fade" id="modalDrifit">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-title"> <!-- HEADER-->
+              <p class="display-4" style="font-size: 10px;"><strong>PcG Logo Drifit</strong></p>
+              <button type='button' class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body"><!-- BODY / DRIFIT -->
+              <div class="wrapper">
+                <a data-fancybox="gallery" href="images/drifit.png"><img src="images/small-drifit.png" style="height: 365px; width: 375px; margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/drifit.png"><img src="images/small-drifit.png" style="margin-left: 100px;" ></a>
+                <a data-fancybox="gallery" href="images/drifit.png"><img src="images/small-drifit.png" ></a>
+                <a data-fancybox="gallery" href="images/drifit.png"><img src="images/small-drifit.png" ></a>
+              </div>
+              <p class="itemTitle" style="font-size:20px; font-weight: 700;">ProClashGamers Logo Drifit Shirt<a href="#" style="text-decoration: none; font-size: 12px; color:orange; font-weight: 500;"><i class="bx bx-cart nav_cart" style="color:orange; margin-left:50px;"></i>Shopping Cart</a></p>
+              <p><strong>$45.00</strong></p>
+              <p class="itemDesc" style="font-size:15px;">
+                Update your wardrobe with this staple men's Champion long sleeve shirt. The soft cotton fabric and relaxed fit 
+                allow to wear the shirt on its own, or layer it with your favorite jacket. Plus, it has the added bonus of a Champion “C” logo on the left sleeve.</br>
+                • 100% cotton</br>
+                • Fabric weight: 5.2 oz/y² (176.3 g/m²)</br>
+                • Regular fit</br>
+                • Taped crew neck</br>
+                • Double-needle stitched bottom hem</br>
+                • Ribbed knit cuffs</br>
+                • Champion "C” logo on the left sleeve</br>
+                • Blank product sourced from El Salvador or Honduras</br>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button class="add-button btn-danger" type="submit">Add to Cart!</button>
+              <button type='button' class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalHat">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-title"> <!-- HEADER-->
+              <p class="display-4" style="font-size: 10px;"><strong>PcG Logo Hat</strong></p>
+              <button type='button' class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body"><!-- BODY / HAT -->
+              <div class="wrapper">
+                <a data-fancybox="gallery" href="images/hat.png"><img src="images/small-hat.png" style="height: 365px; width: 375px; margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/hat.png"><img src="images/small-hat.png" style="margin-left: 90px;" ></a>
+                <a data-fancybox="gallery" href="images/hat.png"><img src="images/small-hat.png" ></a>
+                <a data-fancybox="gallery" href="images/hat.png"><img src="images/small-hat.png" ></a>
+              </div>
+              <p class="itemTitle" style="font-size:20px; font-weight: 700;">ProClashGamers Logo Hat <a href="#" style="text-decoration: none; font-size: 12px; color:orange; font-weight: 500;"><i class="bx bx-cart nav_cart" style="color:orange; margin-left:50px;"></i>Shopping Cart</a></p>
+              <p><strong>$25.00</strong></p>
+              <p class="itemDesc" style="font-size:15px;">
+                This is the snapback of your dreams! It's structured and high-profile, with a flat visor and a subtle grey under visor. </br>
+                • 85% acrylic, 15% wool</br>
+                • Structured, 6-panel, high-profile</br>
+                • Plastic snap closure</br>
+                • Grey under visor</br>
+                • Head circumference: 22”–24” </br>
+                • Blank product sourced from China</br>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button class="add-button btn-danger" type="submit">Add to Cart!</button>
+              <button type='button' class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal fade" id="modalSocks">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-title"> <!-- HEADER-->
+              <p class="display-4" style="font-size: 10px;"><strong>PcG Logo Socks</strong></p>
+              <button type='button' class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body"><!-- BODY / SOCKS -->
+              <div class="wrapper">
+                <a data-fancybox="gallery" href="images/socks.png"><img src="images/small-socks.png" style="height: 365px; width: 375px; margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/socks.png"><img src="images/small-socks.png" style="margin-left: 60px;" ></a>
+                <a data-fancybox="gallery" href="images/socks.png"><img src="images/small-socks.png" ></a>
+                <a data-fancybox="gallery" href="images/socks.png"><img src="images/small-socks.png" ></a>
+              </div>
+              <p class="itemTitle" style="font-size:20px; font-weight: 700;">ProClashGamers Logo Socks <a href="#" style="text-decoration: none; font-size: 12px; color:orange; font-weight: 500;"><i class="bx bx-cart nav_cart" style="color:orange; margin-left:50px;"></i>Shopping Cart</a></p>
+              <p><strong>$25.00</strong></p>
+              <p class="itemDesc" style="font-size:15px;">
+                These socks are extra comfortable thanks to their cushioned bottom. The foot is black with artwork printed along the leg with crisp, bold colors that won't fade. </br>
+                • 60% nylon, 22% cotton, 18% spandex</br>
+                • Crew length</br>
+                • Cushioned bottom</br>
+                • Ribbed leg</br>
+                • Blank product sourced from China</br>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button class="add-button btn-danger" type="submit">Add to Cart!</button>
+              <button type='button' class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalCasual">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-title"> <!-- HEADER-->
+              <p class="display-4" style="font-size: 10px;"><strong>PcG Logo Casual Sweater</strong></p>
+              <button type='button' class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body"><!-- BODY  CASUAL -->
+              <div class="wrapper">
+                <a data-fancybox="gallery" href="images/casual.png"><img src="images/small-casual.png" style="height: 365px; width: 375px; margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/casual.png"><img src="images/small-casual.png" style="margin-left: 110px;" ></a>
+                <a data-fancybox="gallery" href="images/casual.png"><img src="images/small-casual.png" ></a>
+                <a data-fancybox="gallery" href="images/casual.png"><img src="images/small-casual.png" ></a>
+              </div>
+              <p class="itemTitle" style="font-size:20px; font-weight: 700;">ProClashGamers Logo Casual<a href="#" style="text-decoration: none; font-size: 12px; color:orange; font-weight: 500;"><i class="bx bx-cart nav_cart" style="color:orange; margin-left:50px;"></i>Shopping Cart</a></p>
+              <p><strong>$41.00</strong></p>
+              <p class="itemDesc" style="font-size:15px;">
+                Protect yourself from the elements with this fashionable piped fleece jacket. It's pre-shrunk to last a long time, thus becoming a favorite in your wardrobe.</br>
+                • 100% airlume combed and ring-spun cotton</br>
+                • Fabric weight: 7.5 oz/yd² (254.3 g/m²)</br>
+                • Side kangaroo pockets</br>
+                • Contrast-color piping above the chest</br>
+                • 3″ rib cuffs and bottom band</br>
+                • Raglan sleeves</br>
+                • Cadet collar</br>
+                • Blank product sourced from the US</br>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button class="add-button btn-danger" type="submit">Add to Cart!</button>
+              <button type='button' class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalTanktop">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-title"> <!-- HEADER-->
+              <p class="display-4" style="font-size: 10px;"><strong>PcG Logo Mens TankTop</strong></p>
+              <button type='button' class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body"><!-- BODY / TANKTOP -->
+              <div class="wrapper">
+                <a data-fancybox="gallery" href="images/tanktop.png"><img src="images/small-tanktop.png" style="height: 365px; width: 375px; margin-left: 50px;" ></a>
+                <a data-fancybox="gallery" href="images/tanktop.png"><img src="images/small-tanktop.png" style="margin-left: 120px;" ></a>
+                <a data-fancybox="gallery" href="images/tanktop.png"><img src="images/small-tanktop.png" ></a>
+                <a data-fancybox="gallery" href="images/tanktop.png"><img src="images/small-tanktop.png" ></a>
+              </div>
+              <p class="itemTitle" style="font-size:20px; font-weight: 700;">ProClashGamers Logo Mens TankTop</p>
+              <p><strong>$25.00</strong></p>
+              <p class="itemDesc" style="font-size:15px;">
+                This unisex tank top boasts a nice drape, which is ideal for layering or dealing with the summer 
+                heat. In true American Apparel style, the tank top is extremely smooth and soft, and has reinforced smooth arm and head holes, guaranteeing that this is the comfiest tank top you'll ever own.</br>
+                • 100% fine jersey</br>
+                • Heather colors are 90% cotton, 10% polyester</br>
+                • Fabric weight 4.3 oz/yd² (146 g/m²)</br>
+                • Slim fit</br>
+                • Side-seamed construction</br>
+                • Banded arm and head holes</br>
+                • Blank products sourced from the US</br>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button class="add-button btn-danger" type="submit">Add to Cart!</button>
+              <button type='button' class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="./js/jquery-slim.min.js"><\/script>')</script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+	  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>
